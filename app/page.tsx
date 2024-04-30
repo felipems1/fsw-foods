@@ -1,5 +1,11 @@
+import { Header } from './_components/header'
+
 const Home = () => {
-  return <div className="mx-6 bg-red-500 py-5">hello word</div>
+  return (
+    <main>
+      <Header />
+    </main>
+  )
 }
 
 export default Home
