@@ -12,9 +12,7 @@ interface RestaurantsProps {
   }
 }
 
-export default async function Restaurants({
-  params: { id },
-}: RestaurantsProps) {
+export default async function Restaurant({ params: { id } }: RestaurantsProps) {
   const restaurant = await db.restaurant.findUnique({
     where: {
       id,
