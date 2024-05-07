@@ -25,7 +25,7 @@ import {
   calculateProductTotalPrice,
   formatCurrency,
 } from '@/app/_helpers/price'
-import { CartContext } from '@/app/contexts/cart'
+import { CartContext } from '@/app/_contexts/cart'
 import { Prisma } from '@prisma/client'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 import Image from 'next/image'
