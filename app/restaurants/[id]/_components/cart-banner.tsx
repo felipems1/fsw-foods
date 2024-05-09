@@ -25,6 +25,9 @@ export function CartBanner({ restaurant }: CartBannerProps) {
     (product) => product.restaurantId === restaurant.id,
   )
 
+  console.log(restaurant)
+  console.log(products)
+
   if (!restaurantHasProductsOnCart) return null
 
   return (
