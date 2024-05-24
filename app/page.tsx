@@ -9,8 +9,8 @@ import { PromoBanner } from './_components/promo-banner'
 import { RestaurantList } from './_components/restaurant-list'
 import Link from 'next/link'
 
-export default async function Home() {
-  const products = await db.product.findMany({
+const fetch = async () => {
+  const getProducts = db.product.findMany({
     where: {
       discountPercentage: {
         gt: 0,
@@ -25,6 +25,30 @@ export default async function Home() {
       },
     },
   })
+
+  const getBurgersCategory = db.category.findFirst({
+    where: {
+      name: 'Hamburguer',
+    },
+  })
+
+  const getPizzasCategory = db.category.findFirst({
+    where: {
+      name: 'Pizzas',
+    },
+  })
+
+  const [products, burgersCategory, pizzasCategory] = await Promise.all([
+    getProducts,
+    getBurgersCategory,
+    getPizzasCategory,
+  ])
+
+  return { products, burgersCategory, pizzasCategory }
+}
+
+export default async function Home() {
+  const { products, burgersCategory, pizzasCategory } = await fetch()
   return (
     <>
       <Header />
@@ -38,10 +62,12 @@ export default async function Home() {
       </div>
 
       <div className="px-5 pt-6">
-        <PromoBanner
-          src="/banner-mobile-01.png"
-          alt="Até 30% de desconto em pizzas!"
-        />
+        <Link href={`/categories/${pizzasCategory?.id}/products`}>
+          <PromoBanner
+            src="/banner-mobile-01.png"
+            alt="Até 30% de desconto em pizzas!"
+          />
+        </Link>
       </div>
 
       <div className="space-y-4 pt-6">
@@ -61,10 +87,12 @@ export default async function Home() {
       </div>
 
       <div className="px-5 pt-6">
-        <PromoBanner
-          src="/banner-mobile-02.png"
-          alt="A partir de R$17,90 em lanches"
-        />
+        <Link href={`categories/${burgersCategory?.id}/products`}>
+          <PromoBanner
+            src="/banner-mobile-02.png"
+            alt="A partir de R$17,90 em lanches"
+          />
+        </Link>
       </div>
 
       <div className="space-y-4 py-6">
