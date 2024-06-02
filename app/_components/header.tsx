@@ -34,7 +34,7 @@ export function Header() {
         <Image src="/logo.png" alt="FSW Foods" fill className="object-cover" />
       </Link>
       <Sheet>
-        <SheetTrigger>
+        <SheetTrigger asChild>
           <Button
             size="icon"
             variant="outline"
