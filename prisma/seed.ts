@@ -76,8 +76,6 @@ const createBurguers = async (
     await createDeserts(restaurant.id, desertsCategoryId)
     await createJuices(restaurant.id, juicesCategoryId)
 
-    console.log(`Created ${restaurant.name}`)
-
     const burguerProducts = [
       {
         name: 'Cheese Burguer',
@@ -193,8 +191,6 @@ const createBurguers = async (
       await prismaClient.product.create({
         data: product,
       })
-
-      console.log(`Created ${product.name}`)
     }
   }
 }
@@ -269,8 +265,6 @@ const createPizzas = async (
 
     await createDeserts(restaurant.id, desertsCategoryId)
     await createJuices(restaurant.id, juicesCategoryId)
-
-    console.log(`Created ${restaurant.name}`)
 
     const pizzaProducts = [
       {
@@ -369,8 +363,6 @@ const createPizzas = async (
       await prismaClient.product.create({
         data: product,
       })
-
-      console.log(`Created ${product.name}`)
     }
   }
 }
@@ -442,8 +434,6 @@ const createJapanese = async (
     const restaurant = await prismaClient.restaurant.create({
       data: item,
     })
-
-    console.log(`Created ${restaurant.name}`)
 
     await createDeserts(restaurant.id, desertsCategoryId)
     await createJuices(restaurant.id, juicesCategoryId)
@@ -563,8 +553,6 @@ const createJapanese = async (
       await prismaClient.product.create({
         data: product,
       })
-
-      console.log(`Created ${product.name}`)
     }
   }
 }
@@ -636,8 +624,6 @@ const createBrazilian = async (
     const restaurant = await prismaClient.restaurant.create({
       data: item,
     })
-
-    console.log(`Created ${restaurant.name}`)
 
     await createDeserts(restaurant.id, desertsCategoryId)
     await createJuices(restaurant.id, juicesCategoryId)
@@ -757,8 +743,6 @@ const createBrazilian = async (
       await prismaClient.product.create({
         data: product,
       })
-
-      console.log(`Created ${product.name}`)
     }
   }
 }
@@ -892,8 +876,6 @@ const createDeserts = async (restaurantId: string, categoryId: string) => {
     await prismaClient.product.create({
       data: product,
     })
-
-    console.log(`Created ${product.name}`)
   }
 }
 
@@ -1026,8 +1008,6 @@ const createJuices = async (restaurantId: string, categoryId: string) => {
     await prismaClient.product.create({
       data: product,
     })
-
-    console.log(`Created ${product.name}`)
   }
 }
 
@@ -1055,9 +1035,7 @@ const main = async () => {
 }
 
 main()
-  .then(() => {
-    console.log('Seed do banco de dados realizado com sucesso!')
-  })
+  .then(() => {})
   .catch((error) => {
     console.error(error)
     process.exit(1)
