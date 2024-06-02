@@ -31,6 +31,7 @@ export function CartItem({ cartProduct }: CartItemProps) {
           <Image
             src={cartProduct.imageUrl}
             alt={cartProduct.name}
+            sizes="100%"
             fill
             className="rounded-lg object-cover"
           />

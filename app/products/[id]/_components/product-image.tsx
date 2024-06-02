@@ -20,6 +20,7 @@ export function ProductImage({ product }: ProductImageProps) {
       <Image
         src={product?.imageUrl}
         alt={product.name}
+        sizes="100%"
         fill
         className="object-cover"
       />

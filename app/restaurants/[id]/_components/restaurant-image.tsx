@@ -40,6 +40,7 @@ export function RestaurantImage({
       <Image
         src={restaurant?.imageUrl}
         alt={restaurant.name}
+        sizes="100%"
         fill
         className="object-cover"
       />

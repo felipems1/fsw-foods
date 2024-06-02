@@ -31,7 +31,13 @@ export function Header() {
   return (
     <header className="flex justify-between px-5 pt-6">
       <Link href="/" className="relative h-[30px] w-[100px]">
-        <Image src="/logo.png" alt="FSW Foods" fill className="object-cover" />
+        <Image
+          src="/logo.png"
+          alt="FSW Foods"
+          sizes="100%"
+          fill
+          className="object-cover"
+        />
       </Link>
       <Sheet>
         <SheetTrigger asChild>
