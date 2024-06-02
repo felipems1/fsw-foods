@@ -11,7 +11,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'FSW Food',
+  title: 'FSW Foods',
   description:
     'Descubra e peça suas refeições favoritas dos melhores restaurantes locais.',
 }
