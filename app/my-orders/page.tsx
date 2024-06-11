@@ -28,7 +28,7 @@ export default async function MyOrders() {
     <>
       <Header />
 
-      <div className="px-5 py-6">
+      <div className="px-5 py-6 lg:px-[128px]">
         <h2 className="pb-6 text-lg font-semibold">Meus Pedidos</h2>
 
         <div className="space-y-4">
