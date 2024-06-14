@@ -29,7 +29,7 @@ export function Header() {
   const handleSignInClick = () => signIn()
 
   return (
-    <header className="flex justify-between px-5 pt-6 lg:px-[128px]">
+    <header className="flex items-center justify-between border-b border-zinc-300 px-5 py-6 lg:px-[128px]">
       <Link href="/" className="relative h-[30px] w-[100px]">
         <Image
           src="/logo.png"
@@ -39,6 +39,7 @@ export function Header() {
           className="object-cover"
         />
       </Link>
+
       <Sheet>
         <SheetTrigger asChild>
           <Button
