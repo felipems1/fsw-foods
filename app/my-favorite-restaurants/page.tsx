@@ -24,9 +24,9 @@ export default async function MyFavoriteRestaurants() {
   return (
     <>
       <Header />
-      <div className="px-5 py-6">
+      <div className="px-5 py-6 lg:px-[128px]">
         <h2 className="mb-6 text-lg font-semibold">Restaurantes Favoritos</h2>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 lg:grid lg:grid-cols-3">
           {userFavoriteRestaurants.length > 0 ? (
             userFavoriteRestaurants.map(({ restaurant }) => (
               <RestaurantItem
@@ -37,7 +37,7 @@ export default async function MyFavoriteRestaurants() {
               />
             ))
           ) : (
-            <h3 className="font-medium">
+            <h3 className="text-nowrap font-medium">
               Você ainda não marcou nenhum restaurante como favorito.
             </h3>
           )}
