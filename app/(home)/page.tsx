@@ -54,7 +54,7 @@ export default async function Home() {
     <>
       <Header />
 
-      <div className="mt-6 hidden h-[500px] items-end justify-between bg-red-600 px-5 lg:flex lg:px-[128px]">
+      <div className="hidden h-[500px] items-end justify-between bg-red-600 px-5 lg:flex lg:px-[128px]">
         <div className="my-auto flex flex-col gap-5">
           <h1 className="text-5xl font-bold text-white">Está com fome?</h1>
           <p className="text-lg text-white">
