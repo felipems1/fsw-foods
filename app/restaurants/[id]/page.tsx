@@ -79,7 +79,7 @@ export default async function Restaurant({ params: { id } }: RestaurantsProps) {
           />
         </div>
 
-        <div className="hidden lg:flex lg:items-start">
+        <div className="hidden lg:flex lg:items-center">
           <div className="relative h-[380px] w-[750px]">
             <Image
               src={restaurant.imageUrl}
