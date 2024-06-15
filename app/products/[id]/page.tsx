@@ -53,7 +53,12 @@ export default async function Product({ params: { id } }: ProductPageProps) {
         <div className="hidden lg:block">
           <div className="lg:flex lg:items-center">
             <div className="relative hidden h-[500px] w-[600px] lg:block">
-              <Image src={product.imageUrl} alt="" fill />
+              <Image
+                src={product.imageUrl}
+                alt=""
+                fill
+                className="rounded-lg"
+              />
             </div>
             <div className="flex-1 px-10">
               <ProductInfoDesktop product={product} />
