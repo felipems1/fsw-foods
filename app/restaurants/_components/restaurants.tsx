@@ -37,9 +37,9 @@ export function Restaurants({ userFavoriteRestaurants }: RestaurantsProps) {
   return (
     <>
       <Header />
-      <div className="px-5 py-6">
+      <div className="px-5 py-6 lg:px-[128px]">
         <h2 className="mb-6 text-lg font-semibold">Restaurantes Encontrados</h2>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 lg:grid lg:grid-cols-3">
           {restaurants.map((restaurant) => (
             <RestaurantItem
               key={restaurant.id}
