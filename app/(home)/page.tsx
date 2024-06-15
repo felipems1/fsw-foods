@@ -29,7 +29,7 @@ const fetch = async () => {
 
   const getBurgersCategory = db.category.findFirst({
     where: {
-      name: 'Hamburguer',
+      name: 'Hambúrgueres',
     },
   })
 
