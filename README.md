@@ -1,66 +1,52 @@
-# ![Texto Alternativo](/public/logo.png)
+# Fsw Foods
 
-
-Este projeto é uma homepage dinâmica para um aplicativo que apresenta produtos e restaurantes, com foco em banners promocionais e itens recomendados. O aplicativo busca dados de um banco de dados Prisma e os exibe em várias seções na página inicial.
-
+Este projeto é um e-commerce de comida, projetado para apresentar uma ampla variedade de produtos e restaurantes. A plataforma oferece uma experiência visualmente atraente, com destaque para banners promocionais e itens recomendados, permitindo aos usuários facilmente explorar e adquirir seus pratos favoritos.
 
 ## Tecnologias Utilizadas
-* React: Para criar a interface do usuário.
-* Next.js: Para renderização e roteamento do lado do servidor.
-* Prisma: Para gerenciamento de banco de dados.
-* Lucide-React: Para ícones.
-CSS: Para estilizar os componentes.
 
-## Componentes
-* CategoryList: Lista categorias de produtos.
-* Cabeçalho: Exibe a seção de cabeçalho da página.
-* Pesquisa: fornece uma entrada de pesquisa para os usuários.
-* ProductList: Exibe uma lista de produtos.
-Botão: Um componente de botão reutilizável.
-* PromoBanner: Exibe banners promocionais.
-* RestaurantList: Exibe uma lista de restaurantes recomendados.
+* Next.js
+* TypeScript
+* Tailwind CSS
+* Prisma
+* Node.js
+* Shadcn/UI
+* PostgreSQL
+* NextAuth
 
-## Base de dados
-Este projeto utiliza o Prisma para interagir com o banco de dados. O cliente Prisma está configurado no arquivo._lib/prisma.js
+## Passos para Instalação
 
-## Instalação
-### Clone o repositório
+1. Clone o repositório: `git clone <repositório_git>`
+2. Navegue até o diretório: `cd fsw-foods`
+3. Instale as dependências: `npm install`
 
-```sh
-git clone https://github.com/felipems1/fsw-foods.git
+## Como Usar
 
-cd fsw-foods
-```
+1. Crie um arquivo `.env` com base no arquivo `.env.example`.
+2. Execute `docker compose up -d` para iniciar o banco de dados.
+3. Execute `npm run dev`.
+4. Acesse o projeto em `http://localhost:3000`.
 
-## Instalar dependências
+## Funcionalidades Principais
 
-```sh
-npm install
-```
+* Autenticação com o Google
+* Lista de todos os produtos
+* Lista de todos os restaurantes
+* Lista de produtos recomendados
+* Lista de restaurantes recomendados
+* Favoritar produtos
+* Favoritar restaurantes
+* Carrinho de compra
 
-## Configure o banco de dados:
+## Configurações Necessárias
 
-Configure sua conexão de banco de dados no arquivo de esquema Prisma ().`prisma/schema.prisma`
+Crie um arquivo `.env` com base no arquivo `.env.example`  fornecendo as credenciais do banco de dados e outras variáveis de ambiente necessárias.
 
-### Execute as migrações
+## Licença
 
-```sh
-npx prisma migrate dev
-```
+MIT
 
-### Inicie o servidor de desenvolvimento
-```sh
-npm run dev
-```
+## Contato
 
-### Abra o aplicativo em seu navegador
-```sh
-http://localhost:3000
-```
-
-### Licença
-```sh
-Este projeto está licenciado sob a Licença MIT. Consulte o arquivo LICENSE para obter detalhes.
-```
+[Meu Linkedin](https://www.linkedin.com/in/felipems1/)
 
 
