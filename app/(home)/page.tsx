@@ -1,14 +1,14 @@
+import { ChevronRightIcon } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
 import { CategoryList } from '../_components/category-list'
 import { Header } from '../_components/header'
-import { Search } from '../_components/search'
 import { ProductList } from '../_components/product-list'
-import { Button } from '../_components/ui/button'
-import { ChevronRightIcon } from 'lucide-react'
-import { db } from '../_lib/prisma'
 import { PromoBanner } from '../_components/promo-banner'
 import { RestaurantList } from '../_components/restaurant-list'
-import Link from 'next/link'
-import Image from 'next/image'
+import { Search } from '../_components/search'
+import { Button } from '../_components/ui/button'
+import { db } from '../_lib/prisma'
 
 const fetch = async () => {
   const getProducts = db.product.findMany({
@@ -54,7 +54,7 @@ export default async function Home() {
     <>
       <Header />
 
-      <div className="hidden h-[500px] items-end justify-between bg-red-600 px-5 lg:flex lg:px-[128px]">
+      <div className="hidden h-[400px] items-end justify-between bg-red-600 px-5 lg:flex lg:px-[128px]">
         <div className="my-auto flex flex-col gap-5">
           <h1 className="text-5xl font-bold text-white">Está com fome?</h1>
           <p className="text-lg text-white">
