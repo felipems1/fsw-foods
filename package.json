@@ -10,7 +10,7 @@
     "prepare": "prisma generate"
   },
   "prisma": {
-    "seed": "ts-node ./prisma/seed.ts"
+    "seed": "ts-node --loader ts-node/esm prisma/seed.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.0.0",
