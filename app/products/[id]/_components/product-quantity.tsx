@@ -1,10 +1,10 @@
 import { DeliveryInfo } from '@/app/_components/delivery-info'
-import { DiscountBadge } from '@/app/_components/discount-badge'
 import { Button } from '@/app/_components/ui/button'
 import {
   calculateProductTotalPrice,
   formatCurrency,
 } from '@/app/_helpers/price'
+import { DiscountBadge } from '@/app/products/[id]/_components/discount-badge'
 import { Prisma } from '@prisma/client'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 import Image from 'next/image'
