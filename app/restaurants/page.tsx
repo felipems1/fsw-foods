@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { getUserFavoriteRestaurants } from './_actions/get-user-favorites-restaurants'
+import { getUserFavoriteRestaurants } from '../_actions/restaurant'
 import { Restaurants } from './_components/restaurants'
 
 export default async function RestaurantsPage() {

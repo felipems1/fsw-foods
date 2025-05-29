@@ -1,25 +1,9 @@
-import { notFound } from 'next/navigation'
-import { authOptions } from '../_lib/auth'
-import { db } from '../_lib/prisma'
-import { getServerSession } from 'next-auth'
+import { getUserFavoriteRestaurants } from '../_actions/restaurant'
 import { Header } from '../_components/header'
 import { RestaurantItem } from '../_components/restaurant-item'
 
 export default async function MyFavoriteRestaurants() {
-  const session = await getServerSession(authOptions)
-
-  if (!session) {
-    return notFound()
-  }
-
-  const userFavoriteRestaurants = await db.userFavoriteRestaurant.findMany({
-    where: {
-      userId: session.user.id,
-    },
-    include: {
-      restaurant: true,
-    },
-  })
+  const userFavoriteRestaurants = await getUserFavoriteRestaurants()
 
   return (
     <>

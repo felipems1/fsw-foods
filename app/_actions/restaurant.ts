@@ -1,6 +1,8 @@
 'use server'
 
+import { getServerSession } from 'next-auth'
 import { revalidatePath } from 'next/cache'
+import { authOptions } from '../_lib/auth'
 import { db } from '../_lib/prisma'
 
 export async function favoriteRestaurant(userId: string, restaurantId: string) {
@@ -28,4 +30,23 @@ export async function unFavoriteRestaurant(
   })
 
   revalidatePath('/')
+}
+
+export async function getUserFavoriteRestaurants() {
+  const session = await getServerSession(authOptions)
+
+  if (!session?.user.id) {
+    return []
+  }
+
+  const favorites = await db.userFavoriteRestaurant.findMany({
+    where: {
+      userId: session.user.id,
+    },
+    include: {
+      restaurant: true,
+    },
+  })
+
+  return favorites
 }

@@ -1,7 +1,7 @@
+import { getUserFavoriteRestaurants } from '@/app/_actions/restaurant'
 import { Header } from '@/app/_components/header'
 import { RestaurantItem } from '@/app/_components/restaurant-item'
 import { getRecommendedRestaurants } from './_actions/get-recommended-restaurants'
-import { getUserFavoriteRestaurants } from './_actions/get-user-favorite-restaurants'
 
 export default async function RecommendedRestaurants() {
   const [restaurants, userFavoritesRestaurants] = await Promise.all([
