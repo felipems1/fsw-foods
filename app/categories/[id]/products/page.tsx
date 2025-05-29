@@ -1,7 +1,7 @@
 import { Header } from '@/app/_components/header'
 import { ProductItem } from '@/app/_components/product.item'
-import { db } from '@/app/_lib/prisma'
 import { notFound } from 'next/navigation'
+import { getCategoryById } from './_actions/get-category-by-id'
 
 interface CategoriesProps {
   params: {
@@ -10,22 +10,7 @@ interface CategoriesProps {
 }
 
 export default async function Categories({ params: { id } }: CategoriesProps) {
-  const category = await db.category.findUnique({
-    where: {
-      id,
-    },
-    include: {
-      products: {
-        include: {
-          restaurant: {
-            select: {
-              name: true,
-            },
-          },
-        },
-      },
-    },
-  })
+  const category = await getCategoryById(id)
 
   if (!category) {
     return notFound()
