@@ -2,12 +2,20 @@ import { PromoBanner } from '@/app/(home)/_components/promo-banner'
 import { RestaurantList } from '@/app/(home)/_components/restaurant-list'
 import { ProductList } from '@/app/_components/product-list'
 import { Button } from '@/app/_components/ui/button'
+import { Category, Product } from '@prisma/client'
 import { ChevronRightIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { HomeData } from '../_types/home-data'
 import { CategoryList } from './category-list'
 import { RestaurantSearch } from './restaurant-search'
+
+interface HomeData {
+  products: (Product & {
+    restaurant: { name: string }
+  })[]
+  burgersCategory: Category | null
+  pizzasCategory: Category | null
+}
 
 type Props = {
   data: HomeData
