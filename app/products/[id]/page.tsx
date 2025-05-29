@@ -1,13 +1,10 @@
-import { db } from '@/app/_lib/prisma'
-
-import { notFound } from 'next/navigation'
-import { ProductImage } from './_components/product-image'
-
-import { ProductInfo } from './_components/product-info'
-import Image from 'next/image'
 import { Header } from '@/app/_components/header'
-import { ProductInfoDesktop } from './_components/product-info-desktop'
 import { ProductList } from '@/app/_components/product-list'
+import Image from 'next/image'
+import { getProductById } from './_actions/get-product-by-id'
+import { ProductImage } from './_components/product-image'
+import { ProductInfoDesktop } from './_components/product-info-desktop'
+import { ProductInfoMobile } from './_components/product-info-mobile'
 
 interface ProductPageProps {
   params: {
@@ -16,32 +13,7 @@ interface ProductPageProps {
 }
 
 export default async function Product({ params: { id } }: ProductPageProps) {
-  const product = await db.product.findUnique({
-    where: {
-      id,
-    },
-    include: {
-      restaurant: true,
-    },
-  })
-
-  if (!product) {
-    return notFound()
-  }
-
-  const juices = await db.product.findMany({
-    where: {
-      category: {
-        name: 'Sucos',
-      },
-      restaurant: {
-        id: product?.restaurant.id,
-      },
-    },
-    include: {
-      restaurant: true,
-    },
-  })
+  const { product, juices } = await getProductById(id)
 
   return (
     <>
@@ -75,7 +47,7 @@ export default async function Product({ params: { id } }: ProductPageProps) {
           <ProductImage product={product} />
         </div>
 
-        <ProductInfo product={product} complementaryProducts={juices} />
+        <ProductInfoMobile product={product} complementaryProducts={juices} />
       </div>
     </>
   )

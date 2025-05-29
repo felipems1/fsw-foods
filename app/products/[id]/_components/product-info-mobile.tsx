@@ -19,10 +19,8 @@ import {
   SheetHeader,
   SheetTitle,
 } from '@/app/_components/ui/sheet'
-
 import { CartContext } from '@/app/_contexts/cart'
 import { Prisma } from '@prisma/client'
-
 import { useContext, useState } from 'react'
 import { ProductQuantity } from './product-quantity'
 
@@ -39,7 +37,7 @@ interface ProductInfoProps {
   }>[]
 }
 
-export function ProductInfo({
+export function ProductInfoMobile({
   product,
   complementaryProducts,
 }: ProductInfoProps) {

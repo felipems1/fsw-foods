@@ -1,52 +1,87 @@
 # Fsw Foods
 
-Este projeto é um e-commerce de comida, projetado para apresentar uma ampla variedade de produtos e restaurantes. A plataforma oferece uma experiência visualmente atraente, com destaque para banners promocionais e itens recomendados, permitindo aos usuários facilmente explorar e adquirir seus pratos favoritos.
+Um e-commerce de delivery com listagem de restaurantes, produtos e carrinho de compras.
+
+## Acesso ao Projeto
+
+Você pode acessar o projeto em produção clicando no link abaixo:
+
+🔗 [https://fsw-foods-eight.vercel.app/](https://fsw-foods-eight.vercel.app/)
 
 ## Tecnologias Utilizadas
 
 * Next.js
+
 * TypeScript
+
 * Tailwind CSS
-* Prisma
-* Node.js
+
 * Shadcn/UI
-* PostgreSQL
-* NextAuth
+
+* Prisma
+
+* Postgres SQL
+
+* NextAuth.js
+
+## Requisitos
+
+* Docker
+
+* Node.js 18+
+
+* PostgreSQL (via Docker Compose)
+
+* Arquivo .env devidamente configurado
 
 ## Passos para Instalação
 
-1. Clone o repositório: `git clone <repositório_git>`
-2. Navegue até o diretório: `cd fsw-foods`
-3. Instale as dependências: `npm install`
+1. Clone o projeto:
+ `git clone https://github.com/felipems1/fsw-foods.git`
+
+2. Navegue até a pasta: 
+  `cd fsw-foods`
+
+3. Instale as dependências: 
+  `npm install`
+
+4. Crie um arquivo `.env` com base em `.env.example` e preencha as variáveis de ambiente.
+
+5. Suba o banco de dados com Docker: 
+  `docker compose up -d`
+
+6. Aplique as migrações: 
+  `npx prisma migrate dev`
+
+7. Insira os dados iniciais: 
+  `npx prisma db seed`
 
 ## Como Usar
 
-1. Crie um arquivo `.env` com base no arquivo `.env.example`.
-2. Execute `docker compose up -d` para iniciar o banco de dados.
-3. Execute `npm run dev`.
-4. Acesse o projeto em `http://localhost:3000`.
+* Inicie o servidor de desenvolvimento:
+  `npm run dev`
+
+* Acesse no navegador:
+  `http://localhost:3000`
 
 ## Funcionalidades Principais
 
-* Autenticação com o Google
-* Lista de todos os produtos
-* Lista de todos os restaurantes
-* Lista de produtos recomendados
-* Lista de restaurantes recomendados
-* Favoritar produtos
-* Favoritar restaurantes
-* Carrinho de compra
+* Login com o Google (via NextAuth.js)
 
-## Configurações Necessárias
+* Adicionar/remover restaurantes dos favoritos
 
-Crie um arquivo `.env` com base no arquivo `.env.example`  fornecendo as credenciais do banco de dados e outras variáveis de ambiente necessárias.
+* Pesquisa de restaurantes
 
-## Licença
+* Criar e visualizar pedidos
 
-MIT
+* Visualizar produtos recomendados
+
+* Filtrar produtos por categorias
+
+* Listagem de restaurantes recomendados
 
 ## Contato
 
-[Meu Linkedin](https://www.linkedin.com/in/felipems1/)
-
-
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/felipems1/)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-1DAB5F?style=for-the-badge&labelColor=1DAB5F&color=1DAB5F&logoColor=white)](https://wa.me/5583998719705)
+[![Email](https://img.shields.io/badge/E--mail-D14836?style=for-the-badge&labelColor=D14836&color=D14836)](mailto:083felype@gmail.com)
