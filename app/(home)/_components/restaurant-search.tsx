@@ -1,12 +1,12 @@
 'use client'
 
+import { Button } from '@/app/_components/ui/button'
+import { Input } from '@/app/_components/ui/input'
 import { SearchIcon } from 'lucide-react'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
-import React, { FormEvent, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import React, { FormEvent, useState } from 'react'
 
-export function Search() {
+export function RestaurantSearch() {
   const router = useRouter()
   const [search, setSearch] = useState('')
 

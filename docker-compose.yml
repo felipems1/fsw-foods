@@ -6,7 +6,4 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     ports:
-      - "5432:5432"
-
-volumes:
-  .postgres-data:
+      - "5455:5432"
