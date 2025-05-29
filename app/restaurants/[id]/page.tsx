@@ -1,13 +1,12 @@
-import { db } from '@/app/_lib/prisma'
-import { notFound } from 'next/navigation'
-import { RestaurantImage } from './_components/restaurant-image'
-import Image from 'next/image'
-import { ProductList } from '@/app/_components/product-list'
-import { CartBanner } from './_components/cart-banner'
-import { authOptions } from '@/app/_lib/auth'
-import { getServerSession } from 'next-auth'
-import { RestaurantInfo } from './_components/restaurant-info'
 import { Header } from '@/app/_components/header'
+import { ProductList } from '@/app/_components/product-list'
+import Image from 'next/image'
+import { notFound } from 'next/navigation'
+import { getRestaurantById } from './_actions/get-restaurant-by-id'
+import { getUserFavoriteRestaurants } from './_actions/get-user-favorite-restaurants'
+import { CartBanner } from './_components/cart-banner'
+import { RestaurantImage } from './_components/restaurant-image'
+import { RestaurantInfo } from './_components/restaurant-info'
 
 interface RestaurantsProps {
   params: {
@@ -16,54 +15,14 @@ interface RestaurantsProps {
 }
 
 export default async function Restaurant({ params: { id } }: RestaurantsProps) {
-  const restaurant = await db.restaurant.findUnique({
-    where: {
-      id,
-    },
-    include: {
-      categories: {
-        orderBy: {
-          createdAt: 'desc',
-        },
-        include: {
-          products: {
-            where: {
-              restaurantId: id,
-            },
-            include: {
-              restaurant: {
-                select: {
-                  name: true,
-                },
-              },
-            },
-          },
-        },
-      },
-      products: {
-        take: 10,
-        include: {
-          restaurant: {
-            select: {
-              name: true,
-            },
-          },
-        },
-      },
-    },
-  })
+  const [restaurant, userFavoriteRestaurants] = await Promise.all([
+    getRestaurantById(id),
+    getUserFavoriteRestaurants(),
+  ])
 
   if (!restaurant) {
     return notFound()
   }
-
-  const session = await getServerSession(authOptions)
-
-  const userFavoriteRestaurants = await db.userFavoriteRestaurant.findMany({
-    where: {
-      userId: session?.user.id,
-    },
-  })
 
   return (
     <>
