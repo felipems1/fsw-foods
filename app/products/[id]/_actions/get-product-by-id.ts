@@ -3,7 +3,7 @@
 import { db } from '@/app/_lib/prisma'
 import { notFound } from 'next/navigation'
 
-export async function getProductData(id: string) {
+export async function getProductById(id: string) {
   const product = await db.product.findUnique({
     where: { id },
     include: { restaurant: true },

@@ -1,7 +1,7 @@
 import { Header } from '@/app/_components/header'
 import { ProductList } from '@/app/_components/product-list'
 import Image from 'next/image'
-import { getProductData } from './_actions/get-product-data'
+import { getProductById } from './_actions/get-product-by-id'
 import { ProductImage } from './_components/product-image'
 import { ProductInfoDesktop } from './_components/product-info-desktop'
 import { ProductInfoMobile } from './_components/product-info-mobile'
@@ -13,7 +13,7 @@ interface ProductPageProps {
 }
 
 export default async function Product({ params: { id } }: ProductPageProps) {
-  const { product, juices } = await getProductData(id)
+  const { product, juices } = await getProductById(id)
 
   return (
     <>
