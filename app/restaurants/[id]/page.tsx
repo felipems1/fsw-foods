@@ -70,7 +70,7 @@ export default async function Restaurant({ params: { id } }: RestaurantsProps) {
         </div>
 
         {restaurant.categories.map((category) => (
-          <div className="mt-6 space-y-4" key={category.id}>
+          <div className="mb-10 mt-6 space-y-4" key={category.id}>
             <h2 className="px-5 font-semibold lg:px-0">{category.name}</h2>
             <ProductList products={category.products} />
           </div>
