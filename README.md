@@ -26,11 +26,9 @@ Você pode acessar o projeto em produção clicando no link abaixo:
 
 ## Requisitos
 
+* Node.js
+
 * Docker
-
-* Node.js 18+
-
-* PostgreSQL (via Docker Compose)
 
 * Arquivo .env devidamente configurado
 
